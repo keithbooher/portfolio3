@@ -1,0 +1,28 @@
+@import "./color.scss";
+@import "./flex.scss";
+@import "./margin.scss";
+@import "./padding.scss";
+@import "./elements.scss";
+@import "./text.scss";
+@import "./animations.scss";
+@import "./position.scss";
+@import "./display.scss";
+@import "./font-size.scss";
+
+html {
+  background-color: rgb(10, 10, 10);
+}
+
+.link_active_color {
+  color: #8904cc;
+}
+
+.sidebar_bg_color {
+  background-color: #292929;
+}
+
+.hover:hover {
+  cursor: pointer;
+}
+
+
