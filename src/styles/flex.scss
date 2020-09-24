@@ -22,3 +22,17 @@
 .space-evenly {
   justify-content: space-evenly
 }
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+@for $i from 1 through 100 {
+  .flex-basis-#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+.flex-basis-auto {
+  flex-basis: auto;
+}

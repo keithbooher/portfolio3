@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route
 } from "react-router-dom";
@@ -27,22 +27,22 @@ function App() {
   const [showSidebar, setShowSidebar] = useState(false)
 
   return (
-    <Container>
-      {isMobile && <div id="sidebar_bars" className={`link_active_color fixed hover font-size-25 ${showSidebar ? "sidebar_bars_open" : "sidebar_bars"}`} onClick={() => setShowSidebar(!showSidebar)}><FontAwesomeIcon icon={faBars} /></div>}
-      <Router>
-        <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} mobile={isMobile} />
-        <Content>
-            <Switch>
-              <Route exact path="/" component={() => <Home mobile={isMobile} />} />
-              <Route exact path="/about" component={() => <About mobile={isMobile} />} />
-              <Route exact path="/contact" component={() => <Contact mobile={isMobile} />} />
-              <Route exact path="/employment" component={() => <Employment mobile={isMobile} />} />
-              <Route exact path="/skills" component={() => <Skills mobile={isMobile} />} />
-              <Route exact path="/my_work" component={() => <MyWork mobile={isMobile} />} />
-            </Switch>
-        </Content>
-      </Router>
-    </Container>
+    <BrowserRouter>
+      <Container>
+        {isMobile && <div id="sidebar_bars" className={`link_active_color fixed hover font-size-25 ${showSidebar ? "sidebar_bars_open" : "sidebar_bars"}`} onClick={() => setShowSidebar(!showSidebar)}><FontAwesomeIcon icon={faBars} /></div>}
+          <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} mobile={isMobile} />
+          <Content>
+              <Switch>
+                <Route path="/about" component={() => <About mobile={isMobile} />} />
+                <Route path="/contact" component={() => <Contact mobile={isMobile} />} />
+                <Route path="/employment" component={() => <Employment mobile={isMobile} />} />
+                <Route path="/skills" component={() => <Skills mobile={isMobile} />} />
+                <Route path="/my_work" component={() => <MyWork mobile={isMobile} />} />
+                <Route exact path="/" component={() => <Home mobile={isMobile} />} />
+              </Switch>
+          </Content>
+      </Container>
+    </BrowserRouter>
   );
 }
 
