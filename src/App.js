@@ -30,17 +30,17 @@ function App() {
     <BrowserRouter>
       <Container>
         {isMobile && <div id="sidebar_bars" className={`link_active_color fixed hover font-size-25 ${showSidebar ? "sidebar_bars_open" : "sidebar_bars"}`} onClick={() => setShowSidebar(!showSidebar)}><FontAwesomeIcon icon={faBars} /></div>}
-          <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} mobile={isMobile} />
-          <Content>
-              <Switch>
-                <Route path="/about" component={() => <About mobile={isMobile} />} />
-                <Route path="/contact" component={() => <Contact mobile={isMobile} />} />
-                <Route path="/employment" component={() => <Employment mobile={isMobile} />} />
-                <Route path="/skills" component={() => <Skills mobile={isMobile} />} />
-                <Route path="/my_work" component={() => <MyWork mobile={isMobile} />} />
-                <Route exact path="/" component={() => <Home mobile={isMobile} />} />
-              </Switch>
-          </Content>
+        <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} mobile={isMobile} />
+        <Content>
+            <Switch>
+              <Route path="/about" component={() => <About mobile={isMobile} />} />
+              <Route path="/contact" component={() => <Contact mobile={isMobile} />} />
+              <Route path="/employment" component={() => <Employment mobile={isMobile} />} />
+              <Route path="/skills" component={() => <Skills mobile={isMobile} />} />
+              <Route path="/my_work" component={() => <MyWork mobile={isMobile} />} />
+              <Route exact path="/" component={() => <Home mobile={isMobile} />} />
+            </Switch>
+        </Content>
       </Container>
     </BrowserRouter>
   );
