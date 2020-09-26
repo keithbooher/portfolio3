@@ -11,7 +11,7 @@
 @import "./font-size.scss";
 
 html {
-  background-color: rgb(10, 10, 10);
+  background-color: rgb(29, 29, 31);
 }
 
 .link_active_color {
@@ -26,11 +26,12 @@ html {
   cursor: pointer;
 }
 
-.spinner {
+.spinner_container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%)
 }
+
 
 

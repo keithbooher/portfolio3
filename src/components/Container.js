@@ -15,7 +15,7 @@ const Container = ({ children }) => {
         overflow: "scroll", 
         backgroundImage: `url(${bg})`,
         backgroundPosition: "center",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
       }}
     >
       { children }

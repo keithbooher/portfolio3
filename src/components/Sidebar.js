@@ -4,11 +4,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faHome, faTools, faCode, faBookOpen, faEnvelope, faUserTie, faBars } from "@fortawesome/free-solid-svg-icons"
 
-const Sidebar = ({ mobile, showSidebar, setShowSidebar }) => {
+const Sidebar = ({ mobile }) => {
+  const [showSidebar, setShowSidebar] = useState(null)
+  let mobile_bars_class
+  if (showSidebar) {
+    mobile_bars_class = "sidebar_bars_open"
+  }else if (showSidebar === null) {
+    mobile_bars_class = "unitiated_sidebar_bars"
+  } else {
+    mobile_bars_class = "sidebar_bars"
+  }
   return (
     <>
       {mobile ? 
-        <MobileSidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
+        <>
+          <div style={{ zIndex: 10 }} id="sidebar_bars" className={`link_active_color fixed hover font-size-25 ${mobile_bars_class}`} onClick={() => setShowSidebar(!showSidebar)}><FontAwesomeIcon icon={faBars} /></div>
+          {showSidebar !== null && <MobileSidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />}
+        </>
       :
         <DesktopSidebar setShowSidebar={setShowSidebar} />    
       }
@@ -37,7 +49,7 @@ const MobileSidebar = ({ showSidebar, setShowSidebar }) => {
 
   return (
       <>
-        <div id="sidebar_container" ref={refContainer} className={`${showSidebar ? "sidebar_open" : "sidebar"} flex-column padding-xs align-items text-align-center sidebar_bg_color`}>
+        <div style={{ zIndex: 10 }} id="sidebar_container" ref={refContainer} className={`${showSidebar ? "sidebar_open" : "sidebar"} flex-column padding-xs align-items text-align-center sidebar_bg_color`}>
             
           <div className="margin-m-v relative" style={{ flexBasis: "10%" }}>
             <div className={`absolute store_text_color_alt font-size-30`} style={{ fontWeight: 700, zIndex: 2, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>K</div>
@@ -90,7 +102,7 @@ const DesktopSidebar = ({ setShowSidebar }) => {
   const [ hoverItem, setHoverItem ] = useState(null)
 
   return (
-    <div className="flex-column padding-xs align-items text-align-center sidebar_bg_color" style={{ flexBasis: "6em" }}>
+    <div className="flex-column padding-xs align-items text-align-center sidebar_bg_color" style={{ flexBasis: "6em", zIndex: 10 }}>
       
       <div className="margin-m-v relative" style={{ flexBasis: "10%" }}>
         <div className={`absolute store_text_color_alt font-size-40`} style={{ fontWeight: 700, zIndex: 2, top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>K</div>

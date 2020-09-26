@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Switch,
@@ -13,8 +13,6 @@ import Contact from "./components/pages/Contact"
 import Employment from "./components/pages/Employment"
 import Skills from "./components/pages/Skills"
 import MyWork from "./components/pages/MyWork"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
 import './styles/all.scss';
 
 
@@ -24,13 +22,11 @@ let isMobile = mobile()
 
 
 function App() {
-  const [showSidebar, setShowSidebar] = useState(false)
 
   return (
     <BrowserRouter>
       <Container>
-        {isMobile && <div id="sidebar_bars" className={`link_active_color fixed hover font-size-25 ${showSidebar ? "sidebar_bars_open" : "sidebar_bars"}`} onClick={() => setShowSidebar(!showSidebar)}><FontAwesomeIcon icon={faBars} /></div>}
-        <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} mobile={isMobile} />
+        <Sidebar mobile={isMobile} />
         <Content>
             <Switch>
               <Route path="/about" component={() => <About mobile={isMobile} />} />

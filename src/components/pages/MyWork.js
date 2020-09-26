@@ -16,8 +16,12 @@ const MyWork = ({ mobile }) => {
     return () => {};
   }, []);
 
+  let containerStyle = {
+    zIndex: 9
+  }
+
   return (
-    <div>
+    <div style={containerStyle}>
       <h1 className="text-align-center font-size-40">My Work</h1>
       {mobile ?
         <MobileLayout projects={projects} />
@@ -38,12 +42,12 @@ const MobileLayout = ({ projects }) => {
             <div key={index} className="border-bottom" style={{ paddingBottom: "10px" }}>
               <h2 className="text-align-center">{project.project_name}</h2>
               <img />
-              <div>{project.description}</div>
+              <div dangerouslySetInnerHTML={{ __html: project.description }} />
             </div>
           )
         })
       :
-        <FontAwesomeIcon className="font-size-40 spinner" icon={faSpinner} spin />
+        <div className="spinner_container"><FontAwesomeIcon className="font-size-40" icon={faSpinner} spin /> </div>
       }
     </div>
   )
@@ -81,7 +85,7 @@ const DesktopLayout = ({ projects }) => {
           )
         })
       :
-        <FontAwesomeIcon className="font-size-40 spinner" icon={faSpinner} spin />
+        <div className="spinner_container"><FontAwesomeIcon className="font-size-40" icon={faSpinner} spin /> </div>
       }
     </div>
   )
