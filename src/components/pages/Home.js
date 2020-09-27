@@ -8,7 +8,9 @@ const Home = ({ mobile }) => {
     width: "60%",
     transform: "translate(0%, -60%)",
     zIndex: 9,
-    fontSize: "35px"
+    fontSize: "35px",
+    overFlow: "scroll",
+    maxHeight: "100vh"
   }
   if (mobile) {
     containerStyle = {
@@ -18,7 +20,9 @@ const Home = ({ mobile }) => {
       width: "90%",
       transform: "translate(0%, -60%)",
       zIndex: 9,
-      fontSize: "20px"
+      fontSize: "20px",
+      overFlow: "scroll",
+      maxHeight: "100vh"
     }
   }
   return (

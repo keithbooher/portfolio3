@@ -12,7 +12,6 @@ const Container = ({ children }) => {
       className="flex" 
       style={{ 
         height: "100vh", 
-        overflow: "scroll", 
         backgroundImage: `url(${bg})`,
         backgroundPosition: "center",
         backgroundSize: "cover",

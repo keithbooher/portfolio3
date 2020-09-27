@@ -33,8 +33,6 @@ if (!mobile) {
 window.addEventListener('mousemove', function(event) {
     mouse.x = event.x;
     mouse.y = event.y;
-    console.log(`Height: ${canvas.height}
-    Width: ${canvas.width}`)
 })
 
 //make sure that canvas resizes

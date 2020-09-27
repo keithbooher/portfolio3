@@ -22,7 +22,7 @@ const MyWork = ({ mobile }) => {
 
   return (
     <div style={containerStyle}>
-      <h1 className="text-align-center font-size-50">My Work</h1>
+      <h1 style={{ marginTop: "0px" }} className="text-align-center font-size-50">My Work</h1>
       {mobile ?
         <MobileLayout projects={projects} />
       :
@@ -67,17 +67,19 @@ const DesktopLayout = ({ projects }) => {
 
           switch (projects.length) {
             case 1:
-              flex_basis_percent = "50"              
-              font_size = "30"           
+              flex_basis_percent = "50"                      
               break;
             case 2:
-              flex_basis_percent = "50%"              
+              flex_basis_percent = "50%"      
+              font_size = "20"
               break;
             case 3:
-              flex_basis_percent = "33.33"              
+              flex_basis_percent = "33.33"
+              font_size = "18"
               break;
             default:
               flex_basis_percent = "25"
+              font_size = "20"
               break;
           }
           return (

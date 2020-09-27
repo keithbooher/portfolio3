@@ -75,9 +75,9 @@ const MobileSidebar = ({ showSidebar, setShowSidebar }) => {
                 <FontAwesomeIcon className="fade_in font-size-25" icon={faBookOpen} />
               </NavLink>
 
-              <NavLink  onClick={() => setShowSidebar(false)} activeClassName="link_active_color" to="/contact">
+              {/* <NavLink  onClick={() => setShowSidebar(false)} activeClassName="link_active_color" to="/contact">
                 <FontAwesomeIcon className="fade_in font-size-25" icon={faEnvelope} />
-              </NavLink>
+              </NavLink> */}
 
               <NavLink  onClick={() => setShowSidebar(false)} activeClassName="link_active_color" to="/employment">
                 <FontAwesomeIcon className="fade_in font-size-25" icon={faUserTie} />
@@ -144,13 +144,13 @@ const DesktopSidebar = ({ setShowSidebar }) => {
               }
           </NavLink>
 
-          <NavLink onMouseOver={() => setHoverItem("contact")} onMouseOut={() => setHoverItem(null)} onClick={() => setShowSidebar(false)} activeClassName="link_active_color" to="/contact">
+          {/* <NavLink onMouseOver={() => setHoverItem("contact")} onMouseOut={() => setHoverItem(null)} onClick={() => setShowSidebar(false)} activeClassName="link_active_color" to="/contact">
             {hoverItem === "contact" ?
                 <div className="fade_in font-size-16 bold">Contact</div>
               :
               <FontAwesomeIcon className="fade_in font-size-25" icon={faEnvelope} />
               }
-          </NavLink>
+          </NavLink> */}
 
           <NavLink onMouseOver={() => setHoverItem("employment")} onMouseOut={() => setHoverItem(null)} onClick={() => setShowSidebar(false)} activeClassName="link_active_color" to="/employment">
             {hoverItem === "employment" ?

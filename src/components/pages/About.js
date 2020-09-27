@@ -17,10 +17,15 @@ const About = ({ mobile }) => {
   }, []);
 
   let contentContainerStyle = {}
+    let divider_style = {
+      width: "75%",
+      margin: "20px auto"
+    }
   if (mobile) {
     contentContainerStyle = {
       margin: "30px 0px 0px 0px"
     }
+    divider_style.width = "85%"
   } else {
     contentContainerStyle = {
       width: "80%",
@@ -28,13 +33,17 @@ const About = ({ mobile }) => {
     }
   }
 
+
   return (
-    <div style={{ zIndex: 9 }}>
-      <h1 className="text-align-center font-size-40">About</h1>
+    <div style={{ zIndex: 9, fontSize: (mobile ? "18px" : "23px"), lineHeight: "1.3", width: (mobile ? "100%" :"80%"), margin: "0px auto" }}>
+      <h1 style={{ marginTop: "0px" }} className="text-align-center font-size-40">About</h1>
       {about ? 
         about.contents.map((about_section, index) => {
           return (
-            <div key={index} style={contentContainerStyle}>{about_section.content}</div>
+            <>
+             <div style={contentContainerStyle} key={index} dangerouslySetInnerHTML={{ __html: about_section.content }} />
+             { index !== about.contents.length - 1 && <div style={divider_style} className="border-bottom" />}
+            </>
           )
         })
       :

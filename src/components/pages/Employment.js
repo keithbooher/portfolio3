@@ -19,22 +19,24 @@ const WorkExperience = ({ mobile }) => {
   let contentContainerStyle = {}
   if (mobile) {
     contentContainerStyle = {
-      margin: "30px 0px 0px 0px"
+      margin: "30px 0px 0px 0px",
+      lineHeight: "1.5"
     }
   } else {
     contentContainerStyle = {
       width: "80%",
-      margin: "0px auto"
+      margin: "0px auto",
+      lineHeight: "1.5"
     }
   }
 
   return (
-    <div style={{ zIndex: 9 }}>
-      <h1 className="text-align-center font-size-40">Work Experience</h1>
+    <div style={{ zIndex: 9, fontSize: "20px", width: (mobile ? "100%" : "80%"), margin: "0px auto" }}>
+      <h1 className="text-align-center font-size-50">Work Experience</h1>
       {experience ? 
         experience.contents.map((experience_section, index) => {
           return (
-            <div key={index} style={contentContainerStyle}>{experience_section.content}</div>
+            <div key={index} style={contentContainerStyle} dangerouslySetInnerHTML={{ __html: experience_section.content }} />
           )
         })
       :
