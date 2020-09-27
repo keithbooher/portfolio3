@@ -2,8 +2,8 @@ var canvas = document.getElementById("myCanvas");
 
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
-canvasHeight = canvas.height;
-canvasWidth = canvas.width
+var canvasHeight = window.innerHeight;
+var canvasWidth = window.innerWidth;
 
 var mobile = function() {
   let check = false;
@@ -15,7 +15,7 @@ console.log(mobile)
 
 var c = canvas.getContext('2d');
 
-var dy = 1;
+var dy = .5;
 
 var mouse = {
     x: undefined,
@@ -24,6 +24,10 @@ var mouse = {
 
 var maxRadius = 30;
 var minRadius = 2;
+
+if (!mobile) {
+  minRadius = 3;
+}
 
 //mouse tracker
 window.addEventListener('mousemove', function(event) {
@@ -35,13 +39,16 @@ window.addEventListener('mousemove', function(event) {
 
 //make sure that canvas resizes
 window.addEventListener('resize', function(event){
-    canvasHeight = canvas.height;
-    canvasWidth = canvas.width
+  canvasHeight = event.target.innerHeight;
+  canvasWidth = event.target.innerWidth;
+  c.canvas.width  = window.innerWidth;
+  c.canvas.height = window.innerHeight;
+  circleArr = []
+  makeCircles()
 })
 
 function Circle(xCoord,yCoord,radius) {
 
-    var randomNum = Math.floor(Math.random*2);
     this.x = xCoord
     this.y = yCoord
     this.radius = radius
@@ -59,7 +66,7 @@ function Circle(xCoord,yCoord,radius) {
             if (this.radius < maxRadius) {
             this.radius += 1
             }
-        } else if (this.radius > 2) {
+        } else if (this.radius > minRadius) {
             this.radius -= 1
         }
 
@@ -83,26 +90,29 @@ function Circle(xCoord,yCoord,radius) {
 
 
 var circleArr = []
-//for loop to make all the circles
-if (mobile) {
-  for (var index = 0; index < 50; index++) {
-    var randomX = Math.random() * canvasWidth;
-    var randomY = Math.floor(Math.random() * window.innerHeight) + window.innerHeight  
-    
-    var newCircle = new Circle(randomX,randomY,2);
-
-    circleArr.push(newCircle)
-  }
-} else {
-  for (var index = 0; index < 100; index++) {
-    var randomX = Math.random() * canvasWidth;
-    var randomY = Math.floor(Math.random() * window.innerHeight) + window.innerHeight  
-    
-    var newCircle = new Circle(randomX,randomY,2);
-
-    circleArr.push(newCircle)
+function makeCircles() {
+  //for loop to make all the circles
+  if (mobile) {
+    for (var index = 0; index < 50; index++) {
+      var randomX = Math.random() * canvasWidth;
+      var randomY = Math.floor(Math.random() * window.innerHeight) + window.innerHeight  
+      
+      var newCircle = new Circle(randomX,randomY,minRadius);
+  
+      circleArr.push(newCircle)
+    }
+  } else {
+    for (var index = 0; index < 100; index++) {
+      var randomX = Math.random() * canvasWidth;
+      var randomY = Math.floor(Math.random() * window.innerHeight) + window.innerHeight  
+      
+      var newCircle = new Circle(randomX,randomY,minRadius);
+  
+      circleArr.push(newCircle)
+    }
   }
 }
+makeCircles()
 
 
 // console.log(circleArr[0])

@@ -4,8 +4,22 @@ const Home = ({ mobile }) => {
   let containerStyle = {
     position: "absolute", 
     top: "50%",
-    transform: "translate(0px, -70%)",
-    zIndex: 9
+    left: "18%",
+    width: "60%",
+    transform: "translate(0%, -60%)",
+    zIndex: 9,
+    fontSize: "35px"
+  }
+  if (mobile) {
+    containerStyle = {
+      position: "absolute", 
+      top: "50%",
+      left: "8%",
+      width: "90%",
+      transform: "translate(0%, -60%)",
+      zIndex: 9,
+      fontSize: "20px"
+    }
   }
   return (
     <div style={containerStyle}>

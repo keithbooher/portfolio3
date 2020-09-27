@@ -25,21 +25,24 @@ const Skills = ({ mobile }) => {
   } else {
     contentContainerStyle = {
       width: "80%",
-      margin: "0px auto"
+      margin: "0px auto",
+      fontSize: "20px"
     }
   }
   return (
-    <div style={{ zIndex: 9 }}>
+    <div style={{ zIndex: 9, padding: "0px 10px 50px 10px" }}>
       <h1 className="text-align-center font-size-40">Skills</h1>
-      {skills ? 
-        skills.contents.map((skill_section, index) => {
-          return (
-            <div key={index} style={contentContainerStyle}>{skill_section.content}</div>
-          )
-        })
-      :
-        <div className="spinner_container"><FontAwesomeIcon className="font-size-40" icon={faSpinner} spin /> </div>
-      }
+      <div>
+        {skills ? 
+          skills.contents.map((skill_section, index) => {
+            return (
+              <div key={index} style={contentContainerStyle} dangerouslySetInnerHTML={{ __html: skill_section.content }} />
+            )
+          })
+        :
+          <div className="spinner_container"><FontAwesomeIcon className="font-size-40" icon={faSpinner} spin /> </div>
+        }
+      </div>
     </div>
   )
 }
